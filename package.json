@@ -1,0 +1,29 @@
+{
+  "name": "shape-json",
+  "version": "1.1.6",
+  "description": "visualizing and simulating financial concepts",
+  "scripts": {
+
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ansteh/fin-simulations.git"
+  },
+  "keywords": [
+
+  ],
+  "author": "Andre Stehle",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ansteh/fin-simulations/issues"
+  },
+  "dependencies": {
+    "lodash": "^4.15.0"
+  },
+  "devDependencies": {
+
+  }
+}
