@@ -2,9 +2,7 @@
   "name": "shape-json",
   "version": "1.1.6",
   "description": "visualizing and simulating financial concepts",
-  "scripts": {
-
-  },
+  "scripts": {},
   "engines": {
     "node": ">=4"
   },
@@ -12,18 +10,23 @@
     "type": "git",
     "url": "https://github.com/ansteh/fin-simulations.git"
   },
-  "keywords": [
-
-  ],
+  "keywords": [],
   "author": "Andre Stehle",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ansteh/fin-simulations/issues"
   },
   "dependencies": {
+    "express": "^4.14.0",
+    "gulp-util": "^3.0.7",
     "lodash": "^4.15.0"
   },
   "devDependencies": {
-
+    "babel-core": "^6.7.6",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.6.0",
+    "gulp-util": "^3.0.7",
+    "gulp": "^3.9.0",
+    "webpack": "^1.13.0"
   }
 }
