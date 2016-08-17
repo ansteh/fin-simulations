@@ -11,7 +11,7 @@
 
   <body>
     <div style="width: 650px; margin: auto;">
-
+      <salary></salary>
     </div>
   </body>
 
@@ -31,31 +31,31 @@
 
   <script src="salary.min.js"></script>
   <script>
-    var getLoanTaxGenerator = _.curry(function(equation, loan) {
-      let tax = 0;
-      let exponentAccu = 1;
-      _.forEach(equation, (a, exponent) => {
-        tax += a*exponentAccu;
-        exponentAccu *= loan;
-      });
-      return tax;
-    });
-
-    jQuery.getJSON('/salary-table', function(equation) {
-      //console.log(equation);
-      var getLoanTax = getLoanTaxGenerator(equation);
-      var salary = Salary(getLoanTax);
-
-      let yearLoans = [38000, 40000, 45000];      
-      _.forEach(yearLoans, (loan) => {
-        console.log('loan = '+loan+': ');
-        salary.describe(loan);
-        //console.log(salary.getNet());
-        console.log();
-        console.log();
-      });
-
-    });
+    // var getLoanTaxGenerator = _.curry(function(equation, loan) {
+    //   let tax = 0;
+    //   let exponentAccu = 1;
+    //   _.forEach(equation, (a, exponent) => {
+    //     tax += a*exponentAccu;
+    //     exponentAccu *= loan;
+    //   });
+    //   return tax;
+    // });
+    //
+    // jQuery.getJSON('/salary-table', function(equation) {
+    //   //console.log(equation);
+    //   var getLoanTax = getLoanTaxGenerator(equation);
+    //   var salary = Salary(getLoanTax);
+    //
+    //   let yearLoans = [38000, 40000, 45000];
+    //   _.forEach(yearLoans, (loan) => {
+    //     console.log('loan = '+loan+': ');
+    //     salary.describe(loan);
+    //     //console.log(salary.getNet());
+    //     console.log();
+    //     console.log();
+    //   });
+    //
+    // });
   </script>
-  <!--<script src="/client/app.js"></script>-->
+  <script src="/client/app.js"></script>
 </html>
