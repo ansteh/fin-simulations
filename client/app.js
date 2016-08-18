@@ -69,12 +69,13 @@
       templateUrl: '/client/salary/tpl.html',
       scope: {},
       controller: function($scope, $element) {
+        $scope.gross = 40000;
         var salary;
 
         Salary.getInstance()
         .then(function(instance) {
           salary = instance;
-          $scope.update(40000);
+          $scope.update($scope.gross);
           $scope.$apply();
         })
         .catch(function(err) {
@@ -92,8 +93,8 @@
           unemploymentInsuranceCost: 0
         };
 
-        $scope.update = function(gross) {
-          salary.setGross(gross);
+        $scope.update = function() {
+          salary.setGross($scope.gross);
           $scope.stats.net = salary.getNet();
           $scope.stats.loanTax = salary.getLoanTaxCost();
           $scope.stats.solidarityTax = salary.getSolidarityTaxCost();
@@ -102,6 +103,46 @@
           $scope.stats.nursingInsuranceCost = salary.getNursingInsuranceCost();
           $scope.stats.pensionInsuranceCost = salary.getPensionInsuranceCost();
           $scope.stats.unemploymentInsuranceCost = salary.getUnemploymentInsuranceCost();
+          $scope.plot();
+        };
+
+        $scope.plot = function() {
+          var data = {
+            labels: [],
+            series: []
+          };
+
+          _.forOwn($scope.stats, function(value, name) {
+            data.labels.push(name);
+            data.series.push(value);
+          });
+
+
+          var options = {
+            labelInterpolationFnc: function(value) {
+              return value[0]
+            }
+          };
+
+          var sum = function(a, b) { return a + b };
+
+          var responsiveOptions = [
+            ['screen and (min-width: 640px)', {
+              chartPadding: 30,
+              labelOffset: 100,
+              labelDirection: 'explode',
+              labelInterpolationFnc: function(name, index) {
+                return name +': '+ _.round(data.series[index] / data.series.reduce(sum) * 100, 2) + '%';
+                return value;
+              }
+            }],
+            ['screen and (min-width: 1024px)', {
+              labelOffset: 80,
+              chartPadding: 20
+            }]
+          ];
+
+          new Chartist.Pie('.ct-chart', data, options, responsiveOptions);
         };
       }
     };

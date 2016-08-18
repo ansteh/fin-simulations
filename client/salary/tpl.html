@@ -1,1 +1,10 @@
-salary net: <pre>{{ stats | json }}</pre>
+<md-input-container>
+  <label>Gross</label>
+  <input type="number" ng-model="gross" ng-change="update()">
+</md-input-container>
+
+<div>
+  salary net: <pre>{{ stats | json }}</pre>
+</div>
+
+<div class="ct-chart" style="height: 400px; color: rgba(0,0,0,.87);"></div>
