@@ -17,7 +17,7 @@ app.get('/', function(req, res){
 
 let loans = fs.readFileSync(path.join(__dirname, './lib/salary/germany-loan.csv'), { encoding : 'utf8'});
 loans = csvjson.toObject(loans, { delimiter : ';'});
-let approximation = regression('polynomial', _.map(loans, (obj) => [parseFloat(obj['loan']), parseFloat(obj['level_1'])] ), 10);
+let approximation = regression('polynomial', _.map(loans, (obj) => [parseFloat(obj['loan']), parseFloat(obj['level_1'])] ), 2);
 
 app.get('/salary-table', function(req, res){
   res.json(approximation.equation);

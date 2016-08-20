@@ -3,8 +3,28 @@
   <input type="number" ng-model="gross" ng-change="update()">
 </md-input-container>
 
-<div>
+<!-- <div>
   salary net: <pre>{{ stats | json }}</pre>
-</div>
+</div> -->
 
-<div class="ct-chart" style="height: 400px; color: rgba(0,0,0,.87);"></div>
+<md-content layout="column">
+  <div layout="row">
+    <div flex>Gross</div>
+    <div flex style="text-align: right;">{{ gross | number:2 }} €</div>
+  </div>
+  <br>
+  <div ng-repeat="cost in costs" layout="row">
+    <div flex>{{ cost.name }}</div>
+    <div flex style="text-align: right;">{{ cost.value | number:2 }} €</div>
+  </div>
+  <br>
+  <div layout="row">
+    <div flex>Net</div>
+    <div flex style="text-align: right;">{{ stats.net | number:2 }} €</div>
+  </div>
+</md-content>
+
+<h1>{{ eachMonthNet }}</h1>
+
+<div class="ct-chart" style="height: 400px;"></div>
+<div class="ct-net" style="height: 400px;"></div>

@@ -58,8 +58,33 @@
       });
     };
 
+    var stamp = function(salary, gross) {
+      salary.setGross(gross);
+      return {
+        eachMonthNet: salary.eachMonthNet(),
+        net: salary.getNet(),
+        loanTax: salary.getLoanTaxCost(),
+        solidarityTax: salary.getSolidarityTaxCost(),
+        churchTax: salary.getChurchTaxCost(),
+        medicareCost: salary.getMedicareCost(),
+        nursingInsuranceCost: salary.getNursingInsuranceCost(),
+        pensionInsuranceCost: salary.getPensionInsuranceCost(),
+        unemploymentInsuranceCost: salary.getUnemploymentInsuranceCost()
+      };
+    };
+
+    var simulate = function(points) {
+      return getInstance()
+      .then(function(salary) {
+        return _.map(points, function(gross) {
+          return stamp(salary, gross);
+        });
+      });
+    };
+
     return {
-      getInstance: getInstance
+      getInstance: getInstance,
+      simulate: simulate
     };
   });
 
@@ -82,6 +107,28 @@
           console.log(err);
         });
 
+        var interpolation = _.range(20000, 45000, 1000);
+        Salary.simulate(interpolation)
+        .then(function(items) {
+          //console.log(items);
+          var nets = _.map(items, function(stamp) {
+            return stamp.net;
+          });
+          new Chartist.Line('.ct-net', {
+            labels: interpolation,
+            series: [
+              nets,
+              _.map(items, function(stamp) {
+                return stamp.loanTax;
+              })
+            ]
+          }, {
+            low: 0,
+            showArea: true
+          });
+
+        });
+
         $scope.stats = {
           net: 0,
           loanTax: 0,
@@ -93,8 +140,22 @@
           unemploymentInsuranceCost: 0
         };
 
+        var alignCosts = function() {
+          var costs = _.map($scope.stats, function(value, name) {
+            return {
+              name: name,
+              value: value
+            };
+          });
+          costs = _.sortBy(costs, 'value').reverse();
+          costs = _.slice(costs, 1);
+          //console.log(costs);
+          return costs;
+        };
+
         $scope.update = function() {
           salary.setGross($scope.gross);
+          $scope.eachMonthNet = salary.eachMonthNet();
           $scope.stats.net = salary.getNet();
           $scope.stats.loanTax = salary.getLoanTaxCost();
           $scope.stats.solidarityTax = salary.getSolidarityTaxCost();
@@ -103,6 +164,7 @@
           $scope.stats.nursingInsuranceCost = salary.getNursingInsuranceCost();
           $scope.stats.pensionInsuranceCost = salary.getPensionInsuranceCost();
           $scope.stats.unemploymentInsuranceCost = salary.getUnemploymentInsuranceCost();
+          $scope.costs = alignCosts();
           $scope.plot();
         };
 
@@ -132,7 +194,7 @@
               labelOffset: 100,
               labelDirection: 'explode',
               labelInterpolationFnc: function(name, index) {
-                return name +': '+ _.round(data.series[index] / data.series.reduce(sum) * 100, 2) + '%';
+                return _.round(data.series[index] / data.series.reduce(sum) * 100, 2) + '% '+name;
                 return value;
               }
             }],
