@@ -38,6 +38,7 @@
       .then(function(equation) {
         getLoanTax = getLoanTaxGenerator(equation);
         salary = Salary(getLoanTax);
+        //salary.setConditions({churchTax: 0});
         return salary;
       });
     };
