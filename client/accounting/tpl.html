@@ -1,0 +1,67 @@
+<h1>accounting</h1>
+
+<md-content layout="column">
+
+  <md-content layout="row">
+    <md-list flex="50">
+      <md-subheader class="md-no-sticky">assets</md-subheader>
+      <md-list-item class="md-3-line" ng-repeat="asset in assets" style="min-height: inherit;">
+        <div class="md-list-item-text" layout="row" style="margin: 3px;">
+          <div flex>{{ asset.name }}</div>
+          <div flex style="text-align: right;">{{ asset.value | number:2 }} €</div>
+        </div>
+      </md-list-item>
+
+      <md-list-item class="md-3-line" style="min-height: inherit;">
+        <div class="md-list-item-text" layout="row" style="margin: 3px;">
+          <md-input-container flex="45">
+            <input type="text" ng-model="asset.name" placeholder="name">
+          </md-input-container>
+          <md-input-container flex="45">
+            <input type="number" ng-model="asset.value" placeholder="value">
+          </md-input-container>
+          <md-button flex="10" ng-click="addAsset()">
+            <md-icon aria-label="add-assets" class="material-icons" style="font-size: 24px;">add</md-icon>
+          </md-button>
+        </div>
+      </md-list-item>
+
+    </md-list>
+
+    <md-list flex="50">
+      <md-subheader class="md-no-sticky">liabilities</md-subheader>
+      <md-list-item class="md-3-line" ng-repeat="liability in liabilities" style="min-height: inherit;">
+        <div class="md-list-item-text" layout="row" style="margin: 3px;">
+          <div flex>{{ liability.name }}</div>
+          <div flex style="text-align: right;">{{ liability.value | number:2 }} €</div>
+        </div>
+      </md-list-item>
+    </md-list>
+
+  </md-content>
+
+  <md-content layout="row">
+
+    <md-list flex="50">
+      <md-divider ></md-divider>
+      <md-list-item class="md-3-line" style="min-height: inherit;">
+        <div class="md-list-item-text" layout="row" style="margin: 3px;">
+          <div flex>total</div>
+          <div flex style="text-align: right;">{{ totalAssets | number:2 }} €</div>
+        </div>
+      </md-list-item>
+    </md-list>
+
+    <md-list flex="50">
+      <md-divider ></md-divider>
+      <md-list-item class="md-3-line" style="min-height: inherit;">
+        <div class="md-list-item-text" layout="row" style="margin: 3px;">
+          <div flex>total</div>
+          <div flex style="text-align: right;">{{ totalLiabilities | number:2 }} €</div>
+        </div>
+      </md-list-item>
+    </md-list>
+
+  </md-content>
+
+</md-content>
