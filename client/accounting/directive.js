@@ -7,34 +7,8 @@ app.directive('accounting', function(Accounting){
     },
     controller: function($scope, $element) {
 
-      // Accounting.addAsset({
-      //   name: 'wage',
-      //   value: 2000
-      // });
-      //
-      // Accounting.addAsset({
-      //   name: 'passive income',
-      //   value: 300
-      // });
-      //
-      // Accounting.addAsset({
-      //   name: 'blog income',
-      //   value: 100
-      // });
-      //
-      // Accounting.addLiability({
-      //   name: 'usual',
-      //   value: 1800
-      // });
-      //
-      // Accounting.addLiability({
-      //   name: 'investment',
-      //   value: 500
-      // });
-      //
-      // console.log(Accounting.total('assets'));
-
       $scope.renderAccounting = function() {
+        Accounting.applyProfitAndLoss();
         $scope.assets = Accounting.get('assets');
         $scope.liabilities = Accounting.get('liabilities');
         $scope.totalAssets = Accounting.total('assets');

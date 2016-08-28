@@ -78,12 +78,21 @@ app.directive('salary', function(Salary){
       };
 
       var updateMonthly = function() {
-        $scope.monthly = _.map($scope.stats, function(value, name) {
-          return {
-            name: name,
-            value: _.round(value/12, 2),
-            type: getType(name)
-          };
+        $scope.monthly = [];
+        _.forEach($scope.stats, function(value, name) {
+          if(name !== 'net') {
+            $scope.monthly.push({
+              name: name,
+              value: _.round(value/12, 2),
+              type: getType(name)
+            });
+          }
+        });
+
+        $scope.monthly.push({
+          name: 'job',
+          value: salary.eachMonthGross(),
+          type: 'assets'
         });
       };
 

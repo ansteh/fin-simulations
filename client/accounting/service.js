@@ -61,9 +61,18 @@ app.factory('Accounting', function(Request) {
     }
   };
 
+  var getTotalResourcesOnly = function(pagename) {
+    return _.chain(get(pagename))
+      .filter(function(resource) {
+        return _.includes(['profit', 'loss'], resource.name) === false;
+      })
+      .map('value')
+      .sum()
+      .value();
+  };
+
   var applyProfitAndLoss = function() {
-    var difference = total('assets') - total('liabilities');
-    console.log(difference);
+    var difference = getTotalResourcesOnly('assets') - getTotalResourcesOnly('liabilities');
     if(difference > 0) {
       updateResource({
         type: 'liabilities',
@@ -95,6 +104,7 @@ app.factory('Accounting', function(Request) {
     isBalanced: isBalanced,
     total: total,
     updateAll: updateAll,
-    updateResource: updateResource
+    updateResource: updateResource,
+    applyProfitAndLoss: applyProfitAndLoss
   };
 });
