@@ -7,7 +7,11 @@ const fs             = require('fs');
 const csvjson        = require('csvjson');
 const regression     = require('regression');
 const _              = require('lodash');
+const loadJsonFile   = require('load-json-file');
+const writeJsonFile  = require('write-json-file');
+const bodyParser     = require('body-parser');
 
+app.use(bodyParser.json());
 app.use('/client', express.static(path.join(__dirname, '/client')));
 app.use(express.static('dist'));
 
@@ -23,6 +27,19 @@ app.get('/salary-table', function(req, res){
   res.json(approximation.equation);
 });
 
+app.get('/salary/get/local', function(req, res){
+  let filepath = path.resolve(__dirname, 'lib/salary/resources/local.json');
+  loadJsonFile(filepath).then(json => {
+    res.json(json);
+  });
+});
+
+app.post('/salary/save/local', function(req, res){
+  let filepath = path.resolve(__dirname, 'lib/salary/resources/local.json');
+  writeJsonFile(filepath, req.body).then(() => {
+    res.json({});
+  });
+});
 
 const server = require('http').Server(app);
 

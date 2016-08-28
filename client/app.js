@@ -14,8 +14,20 @@ var app = (function(angular) {
       });
     };
 
+    function post(url, data){
+      return new Promise(function(resolve, reject){
+        $http.post(url, data)
+        .then(function (response) {
+          resolve(response.data);
+        }, function (err) {
+          reject(err);
+        });
+      });
+    };
+
     return {
-      get: get
+      get: get,
+      post: post
     };
   });
 

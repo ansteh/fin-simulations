@@ -1,4 +1,4 @@
-app.directive('accounting', function(Accounting){
+app.directive('accounting', function(Accounting, Request){
   return {
     restrict: 'E',
     templateUrl: '/client/accounting/tpl.html',
@@ -6,6 +6,16 @@ app.directive('accounting', function(Accounting){
       resources: "="
     },
     controller: function($scope, $element) {
+
+      Request.get('/salary/get/local')
+      .then(function(data) {
+        console.log(data);
+      });
+
+      // Request.post('/salary/save/local', { test: { aouch: 12 } })
+      // .then(function(data) {
+      //   console.log(data);
+      // });
 
       $scope.renderAccounting = function() {
         Accounting.applyProfitAndLoss();

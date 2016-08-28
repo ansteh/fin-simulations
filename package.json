@@ -17,9 +17,12 @@
     "url": "https://github.com/ansteh/fin-simulations/issues"
   },
   "dependencies": {
+    "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "gulp-util": "^3.0.7",
-    "lodash": "^4.15.0"
+    "load-json-file": "^2.0.0",
+    "lodash": "^4.15.0",
+    "write-json-file": "^2.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.7.6",
