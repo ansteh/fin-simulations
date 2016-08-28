@@ -11,12 +11,13 @@
 
   <body>
     <div style="width: 650px; margin: auto;">
-      <accounting></accounting>
-
-      <br>
-      <br>
+      <accounting resources="monthly"></accounting>
       
-      <salary></salary>
+      <br>
+      <br>
+
+      <salary monthly="monthly"></salary>
+      <pre>{{ monthly | json }}</pre>
     </div>
   </body>
 

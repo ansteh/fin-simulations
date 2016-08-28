@@ -2,7 +2,9 @@ app.directive('salary', function(Salary){
   return {
     restrict: 'E',
     templateUrl: '/client/salary/tpl.html',
-    scope: {},
+    scope: {
+      monthly: "="
+    },
     controller: function($scope, $element) {
       $scope.gross = 40000;
       var salary;
@@ -67,6 +69,24 @@ app.directive('salary', function(Salary){
         return costs;
       };
 
+      var getType = function(name) {
+        if(name === "net") {
+          return "assets"
+        } else {
+          return "liabilities"
+        }
+      };
+
+      var updateMonthly = function() {
+        $scope.monthly = _.map($scope.stats, function(value, name) {
+          return {
+            name: name,
+            value: _.round(value/12, 2),
+            type: getType(name)
+          };
+        });
+      };
+
       $scope.update = function() {
         salary.setGross($scope.gross);
         $scope.eachMonthNet = salary.eachMonthNet();
@@ -78,6 +98,8 @@ app.directive('salary', function(Salary){
         $scope.stats.nursingInsuranceCost = salary.getNursingInsuranceCost();
         $scope.stats.pensionInsuranceCost = salary.getPensionInsuranceCost();
         $scope.stats.unemploymentInsuranceCost = salary.getUnemploymentInsuranceCost();
+
+        updateMonthly();
         $scope.costs = alignCosts();
         $scope.plot();
       };

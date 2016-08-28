@@ -32,6 +32,10 @@ app.factory('Accounting', function(Request) {
     return add('liabilities', liability);
   };
 
+  var addResource = function() {
+
+  };
+
   return {
     isBalanced: isBalanced,
     get: get,

@@ -2,7 +2,9 @@ app.directive('accounting', function(Accounting){
   return {
     restrict: 'E',
     templateUrl: '/client/accounting/tpl.html',
-    scope: {},
+    scope: {
+      resources: "="
+    },
     controller: function($scope, $element) {
 
       Accounting.addAsset({
@@ -46,6 +48,17 @@ app.directive('accounting', function(Accounting){
         $scope.asset = {};
         $scope.renderAccounting();
       };
+
+      $scope.liability = {};
+      $scope.addLiability = function() {
+        Accounting.addLiability($scope.liability);
+        $scope.liability = {};
+        $scope.renderAccounting();
+      };
+
+      $scope.$watch('resources', function() {
+        console.log($scope.resources);
+      });
     }
   };
 });
