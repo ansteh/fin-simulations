@@ -3,10 +3,10 @@ app.directive('salary', function(Salary){
     restrict: 'E',
     templateUrl: '/client/salary/tpl.html',
     scope: {
-      monthly: "="
+      monthly: "=",
+      gross: "="
     },
     controller: function($scope, $element) {
-      $scope.gross = 40000;
       var salary;
 
       Salary.getInstance()

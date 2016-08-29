@@ -95,6 +95,19 @@ app.factory('Accounting', function(Request) {
     applyProfitAndLoss();
   };
 
+  var getBalance = function() {
+    return balance;
+  };
+
+  var setBalance = function(newBalance) {
+    balance = newBalance;
+  };
+
+  var findValueOf = function(name) {
+    var resource = findResource(name);
+    return _.get(resource, 'value');
+  };
+
   return {
     isBalanced: isBalanced,
     get: get,
@@ -105,6 +118,9 @@ app.factory('Accounting', function(Request) {
     total: total,
     updateAll: updateAll,
     updateResource: updateResource,
-    applyProfitAndLoss: applyProfitAndLoss
+    applyProfitAndLoss: applyProfitAndLoss,
+    getBalance: getBalance,
+    setBalance: setBalance,
+    findValueOf: findValueOf
   };
 });

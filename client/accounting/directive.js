@@ -7,16 +7,6 @@ app.directive('accounting', function(Accounting, Request){
     },
     controller: function($scope, $element) {
 
-      Request.get('/salary/get/local')
-      .then(function(data) {
-        console.log(data);
-      });
-
-      // Request.post('/salary/save/local', { test: { aouch: 12 } })
-      // .then(function(data) {
-      //   console.log(data);
-      // });
-
       $scope.renderAccounting = function() {
         Accounting.applyProfitAndLoss();
         $scope.assets = Accounting.get('assets');
@@ -24,7 +14,6 @@ app.directive('accounting', function(Accounting, Request){
         $scope.totalAssets = Accounting.total('assets');
         $scope.totalLiabilities = Accounting.total('liabilities');
       };
-      $scope.renderAccounting();
 
       $scope.asset = {};
       $scope.addAsset = function() {
@@ -38,6 +27,13 @@ app.directive('accounting', function(Accounting, Request){
         Accounting.addLiability($scope.liability);
         $scope.liability = {};
         $scope.renderAccounting();
+      };
+
+      $scope.save = function() {
+        Request.post('/salary/save/local', Accounting.getBalance())
+        .then(function(data) {
+          console.log(data);
+        });
       };
 
       $scope.$watch('resources', function() {
