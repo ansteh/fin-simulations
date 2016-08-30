@@ -124,7 +124,6 @@ app.directive('salary', function(Salary){
           data.series.push(value);
         });
 
-
         var options = {
           labelInterpolationFnc: function(value) {
             return value[0]
