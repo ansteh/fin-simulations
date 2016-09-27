@@ -33,3 +33,34 @@ gulp.task("salary", function(callback) {
         callback();
     });
 });
+
+gulp.task("interest", function(callback) {
+    webpack({
+      entry: "./lib/interest/index.js",
+      output: {
+        libraryTarget: "var",
+        library: "Interest",
+        path: path.resolve(__dirname, 'dist'),
+        filename: "interest.min.js"
+      },
+      module: {
+        loaders: [{
+          exclude: /(node_modules|bower_components)/,
+          test: /\.js$/,
+          loader: 'babel',
+          query: {
+            presets: ['es2015']
+          }
+        }]
+      },
+      plugins: [
+        new webpack.optimize.UglifyJsPlugin()
+      ]
+    }, function(err, stats) {
+        if(err) throw new gutil.PluginError("webpack", err);
+        gutil.log("[webpack]", stats.toString({
+
+        }));
+        callback();
+    });
+});
