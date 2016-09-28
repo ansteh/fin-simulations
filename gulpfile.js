@@ -43,6 +43,9 @@ gulp.task("interest", function(callback) {
         path: path.resolve(__dirname, 'dist'),
         filename: "interest.min.js"
       },
+      externals: {
+        lodash: "_"
+      },
       module: {
         loaders: [{
           exclude: /(node_modules|bower_components)/,

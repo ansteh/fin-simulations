@@ -13,6 +13,7 @@ const bodyParser     = require('body-parser');
 
 app.use(bodyParser.json());
 app.use('/client', express.static(path.join(__dirname, '/client')));
+app.use('/dist', express.static(path.join(__dirname, '/dist')));
 app.use(express.static('dist'));
 
 app.get('/', function(req, res){

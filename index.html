@@ -24,7 +24,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.9.8/chartist.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.4.1/bluebird.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.16.0/lodash.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.16.2/lodash.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.min.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-animate.min.js"></script>
@@ -39,4 +39,12 @@
   <script src="/client/salary/directive.js"></script>
   <script src="/client/accounting/service.js"></script>
   <script src="/client/accounting/directive.js"></script>
+  <script src="/dist/interest.min.js"></script>
+  <script>
+    var simpleOutput = Interest.simple.output({ seed: 1000, rate: 0.05, runtime: 2 });
+    var rate = Interest.simple.rate({ seed: 1000, output: simpleOutput, runtime: 2 });
+    var runtime = Interest.simple.runtime({ seed: 1000, output: simpleOutput, rate: 0.05 });
+    var seed = Interest.simple.seed({ runtime: runtime, output: simpleOutput, rate: rate });
+    console.log(simpleOutput, rate, runtime, seed);
+  </script>
 </html>
