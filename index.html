@@ -6,11 +6,14 @@
 
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.9/angular-material.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.9.8/chartist.min.css">
+    <link rel="stylesheet" type="text/css" href="/client/index.css">
   </head>
 
   <body>
     <div style="width: 650px; margin: auto;">
+      <interest-compare seed="500" rate="0.12" runtime="10"></interest-compare>
       <wealth></wealth>
     </div>
   </body>
@@ -19,8 +22,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.12/d3.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/metrics-graphics/2.9.0/metricsgraphics.min.js"></script>-->
 
-  <link rel="stylesheet" type="text/css" href="/client/index.css">
-
+  <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.9.8/chartist.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.4.1/bluebird.min.js"></script>
@@ -33,18 +35,12 @@
   <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.9/angular-material.min.js"></script>
 
   <script src="salary.min.js"></script>
+  <script src="/dist/interest.min.js"></script>
   <script src="/client/app.js"></script>
   <script src="/client/wealth/directive.js"></script>
   <script src="/client/salary/service.js"></script>
   <script src="/client/salary/directive.js"></script>
   <script src="/client/accounting/service.js"></script>
   <script src="/client/accounting/directive.js"></script>
-  <script src="/dist/interest.min.js"></script>
-  <script>
-    var simpleOutput = Interest.simple.output({ seed: 1000, rate: 0.05, runtime: 2 });
-    var rate = Interest.simple.rate({ seed: 1000, output: simpleOutput, runtime: 2 });
-    var runtime = Interest.simple.runtime({ seed: 1000, output: simpleOutput, rate: 0.05 });
-    var seed = Interest.simple.seed({ runtime: runtime, output: simpleOutput, rate: rate });
-    console.log(simpleOutput, rate, runtime, seed);
-  </script>
+  <script src="/client/interest-compare/directive.js"></script>
 </html>

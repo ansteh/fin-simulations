@@ -1,0 +1,21 @@
+<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+  <thead>
+    <tr>
+      <th class="mdl-data-table__cell--non-numeric">Time</th>
+      <th>Simple</th>
+      <th>Compound</th>
+      <th>Dif %</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="time in series">
+      <td class="mdl-data-table__cell--non-numeric">{{ $index }}</td>
+      <td>{{ time[0] }}</td>
+      <td>{{ time[1] }}</td>
+      <td>{{ time[2] }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<pre>{{ simple | json }}</pre>
+<pre>{{ compound | json }}</pre>
