@@ -15,6 +15,7 @@ app.directive('interestCompare', function(Accounting, Request){
         });
       };
 
+      console.log(_.range(1, 5));
       $scope.series = [];
       $scope.update = function() {
         $scope.simple = createSeriesBy(Interest.simple);
