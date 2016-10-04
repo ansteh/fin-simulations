@@ -52,3 +52,15 @@ Tipps:
 
 Formeln:
   - 72 Regel: 72/Zins = Zahl der Jahre zur Verdopplung des Einsatzes
+
+Metriken:
+  KGV: Kurs-Gewinn-Verhältnis: jetziger Gegenwert (wie teuer ist eine Aktie?) => Kurs / Gewinn pro Aktie
+  Dividantenrendite
+
+Strategien:
+  Kaufleute: (nur für Meister-Aktien/Blue Chips)
+    - Tabelle: Name, Schlusskurs, letzte Dividende, Dividentenrendite=(Kurs/Dividende)
+    - sortieren nach absteigender Dividendenrendite
+    - das erste Dritell entnehmen
+    - entnehme nun die Hälfte mit den niedrigsten Kursen (optisch billige Kurse schwanken stärker)
+    - nach Ablauf eines Jahres den Prozesswiederholen und das Portfolio bei Bedarf umschichten
