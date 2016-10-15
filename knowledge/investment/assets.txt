@@ -64,3 +64,60 @@ Strategien:
     - das erste Dritell entnehmen
     - entnehme nun die Hälfte mit den niedrigsten Kursen (optisch billige Kurse schwanken stärker)
     - nach Ablauf eines Jahres den Prozesswiederholen und das Portfolio bei Bedarf umschichten
+    - siehe Kommentar "the intelligent investor" eine Illusion
+
+Meister:
+  1. Marke: Ist es eine Weltmarke? je 8-10P für die ersten 20 Weltmarken siehe http://interbrand.com/best-brands/best-global-brands/2016/
+
+  2. Dominanz: Monopolist (9-10P)? Dominiert? Branchenführer (6-8)? Marktanteil? vergeleiche (McDonalds - BurgerKing) vs. Autoindustrie (10 P)
+
+  3. geringwertige Wirtschaftsgüter:
+    - täglicher Bedarf (9-10)
+    - wird in größeren Abständen für Privatpersonen (6-8)
+    - Investitionsgüter, Großprojekte (0-5)
+
+  4. Dynamik u. Wachstumspotential der Branche:
+    - überschaubar + Wachstumspotential hoch(9-10)
+    - überschaubar + mittel(6-8)
+    - verändert sich + hoch(6-8)
+    - verändert ssich + mittel(0-5)
+
+  5. Strategischer Fokus
+    - über 80% Umsatz aus einem Produkt (9-10)
+    - über 60% " (7-8)
+    - bis zu 60% (0-6)
+
+  6. Margen
+    - Brutto > 40%, Netto > 20% (je 5)
+    - Brutto > 30%, Netto > 17,5% (je 4)
+    - Brutto > 20%, Netto > 15% (je 3)
+    - Brutto > 17,5%, Netto > 12,5% (je 2)
+    - Brutto > 15%, Netto > 10% (je 1)
+
+  7. Gewinnsteigerung pro Jahr in 10 Jahren
+    - > 15 % (10)
+    - > 13-14 % (9)
+    - > 10-12 % (7-8)
+    - > 5-9 % (0-6)
+    - < 5 % (0)
+
+  8. Einbehaltene Gewinne, Rendite
+    - einbehaltene Gewinne > 50%, Rendite > 15% (je 5)
+    - einbehaltene Gewinne > 40%, Rendite > 13%
+    - einbehaltene Gewinne > 35%, Rendite > 11%
+    - einbehaltene Gewinne > 30%, Rendite > 9%
+    - einbehaltene Gewinne > 25%, Rendite > 7%
+
+  9. Operative Cashflowmargen und Sachinvestitionsquote
+    - Cashflowmarge > 20%, Sachinvestitionsquote < 30% (je 5)
+    - Cashflowmarge > 17%, Sachinvestitionsquote < 35%
+    - Cashflowmarge > 15%, Sachinvestitionsquote < 40%
+    - Cashflowmarge > 13%, Sachinvestitionsquote < 50%
+    - Cashflowmarge > 10%, Sachinvestitionsquote < 60%
+
+  10. Eigenkapital und Eigenkapitalrendite
+    - Eigenkapital > 70%  Rendite > 30% (je 5)
+    - Eigenkapital > 60%  Rendite > 25% (je 5)
+    - Eigenkapital > 50%  Rendite > 20% (je 5)
+    - Eigenkapital > 40%  Rendite > 15% (je 5)
+    - Eigenkapital > 30%  Rendite > 10% (je 5)
