@@ -48,7 +48,18 @@ Sparen:
   # satt einkaufen!
 
 Tipps:
-  - Die beste erste Geldanlage ist, die Schulden abzubauen.
+  - Die beste erste Geldanlage ist, die Schulden abzubauen. Zinsenfresser.
+  - Bilde dir deine eigenen Meinung, denn Experten, Journalisten und Fondmanager irren sich oder sind zu optimistisch mit ihren Einschätzungnen aufgrund beruflicher Absichten.
+  - Die Entwicklung der Börsenkurse wird langfristig immer von der Entwicklung der Gewinne pro Aktie bestimmt!
+  - An der Börse werden Erwartungen gehandelt!
+  - Aktiengesellschaften müssen ihre Entwicklung dokumentieren => Jahresbericht, Quartalsbericht
+  - Jahresbericht:
+    1. Gewinn und Verlustrechnung
+    2. Bilanz
+    3. Cashflow
+    4. Kommentar zu wirtschaftlichen Situation seitens des Mangements
+  - Jahresergebnis kann stark schwanken
+  - Nur die gegenwärtigen und zukünftige erwarteten Gewinne bestimmen den Börsenkurs
 
 Formeln:
   - 72 Regel: 72/Zins = Zahl der Jahre zur Verdopplung des Einsatzes
@@ -121,3 +132,85 @@ Meister:
     - Eigenkapital > 50%  Rendite > 20% (je 5)
     - Eigenkapital > 40%  Rendite > 15% (je 5)
     - Eigenkapital > 30%  Rendite > 10% (je 5)
+
+GuV:
+  1. Umsatz
+  2. - Herstellkosten
+  3. = Bruttoergebnis vom Umsatz
+  4. - andere Kosten sowie sonstige betriebliche Erträge und Aufwendungen
+  5. = Betriebsergebnis
+  6. -/+ Finanzergebnis
+  7. = Ergebnis der gewöhnlichen Geschäftstätigkeit
+  8. -/+Außerordentliches Ergebnis
+  9. Gewinn vor Ertragssteuern
+  10. - Ertragssteuern
+  11. Jahresüberschuss
+
+  Ergebnismargen: (Je höher die Kennzahl desto besser)
+    1. (Gross Margin) Bruttogewinnspanne = Bruttoergebnis / Umsatz
+    2. (Operating Margin) Betriebsergebnismarge = Betriebsergebnis / Umsatz
+    3. (Net Margin) Nettogewinnspanne = Jahresüberschuss / Umsatz
+
+  Tipps:
+    - Vergleiche die Margen innerhalb einer Branche
+    - Bruttogewinnspanne sagt aus wie attraktiv der Markt für das Unternehmen ist
+    - das Ergebnis aus operativer Geschäftstätigkeit sagt aus wie effizient ein Unternehmen ist
+
+  Vorgehensweise:
+    1. Investoren bevorzugen Unternehmen, die gute Gewinne machen.
+    2. Nettoergebnis hat nur eine geringe Aussagekraft. Diese werden unkommentierte in Medien dargestellt und sind daher nutzlos.
+    3. Bruttomargen eignen sich gut, um die Rentabilität eines Unternehmens innerhalb der Branche zu vergleichen.
+    4. Mehrer Jahre vergleichen, da die Zahlen für kurze Zeit geschönt werden können.
+    5. Die Entwicklung der Bruttogewinne und Betriebsmargen sollten kontinuierlich nach oben gehen => kontinuierliche Unternehmensentwicklung
+    6. Noch besser, wenn sich die Brutto- und operative Marge sich verbessern => das Unternehmen wächst nicht nur, sondern wird auch effizient
+
+
+Cashflow (Gegenüberstellung von Einahmen und Ausgaben)
+  (Statement of Sources and Uses of Funds, Cashflow Statement)
+  "Profit is theory, cash is a fact"
+  - zu wenig Cash bedeutet irgendwann Insolvenz
+  - kein Unternehmen finanzieren, das Cash frisst
+  - nur sinnvolle Investinonen unterstützen
+
+  Methodik: Betriebsergebnis aus GuV => Nettocashflow = Abfluss/Zufluss aus operativer Geschäftstätigkeit
+  Tipp: Vergleichszahlen aus fünf Jahren betrachten
+
+  Betriebsergebnis der gewöhnlichen Geschäftstätigkeit
+  +/- Abschreibungen (ohne freigesetzen Vorräte)
+  = Brutto-Cashflow (flüssige Mittel aus eigner Kraft erwirtschaftet)
+
+  + Forderungen
+  + Zunahme Vorräte (je mehr Vorrärte desto schlechter, bindet Geld betrachte Vergleichszahlen)
+  + Zunahme an Forderungen aus Lieferung u. Leistung (bindet Cash;je prozentual höher im Verhältniss zur Umsatzentwicklung als im Vorjahr desto schlechter )
+  + Zunahme Verbindlichkeiten aus Lieferung u. Leistung (ein Plus bedeutet, dass das Geld beim Unternehmen bleibt; es hat sozusagen Geld vom Lieferanten geliehen bekommen und kann damit operieren)
+  = Nettot-Cashflow (Kraftquelle des Unternehmens, da dieser Cash dem Unternehmen zu Verfügung steht)
+
+  => Ist die Kennzahl positiv, so kann das Unternehmen ohne Außeninvestitionen selber investieren und Devidenden ausschütten
+
+Eigenkapital: steht der Unternehmen immer zu Verfügung und kann nicht gefordert werden (Vergleich in der selben Branche)
+Eigenkapitalquote = Eigenkapital / Bilanzsumme (Verzinsung des Eigenkapitals, steigende Tendenz über längere Zeit => erhöhte Leistungsfähigkeit)
+Eigenkapitalrendite = Jahresüberschus / Eigenkapital
+
+(Flow Ratio) Geldflusszahl:
+  Geldfluss aus laufenden Geschäften =
+  Forderungen aus den laufenden Geschäften / Verbindlichkeiten aus den laufenden Geschäften =
+  (kurzfristige Passiva - kurzfristige Schulden) / (kurzfristige Aktiva - Kasse u. Kontenbestände)
+
+je kleiner die Geldflusszahl desto besser:
+  - sollte gelten: Flow Ratio < 1
+  - je mehr Forderungen aus LuL desto schlechter (man hat Cash ausgeliehen)
+  - je mehr Verbindlichkeiten aus LuL desto besser (man hat Cash geliehen bekommen)
+  - je kleiner die Zahl desto mehr Finanzierung kann das Unternehmen auf die Lieferanten abwälzen
+  - je kleiner die Vorräte desto effizienter arbeitet das Unternehmen
+  - je größer die Kennzahl, desto mehr muss Unternehmen den Kunden die Ware finanzieren (das ist schlecht)
+
+Tipps:
+  - Forderungen aus Lieferung und Leistunge dürfen nicht schneller als der Umsatz steigen => Kunden zahlen nur zögerlich
+
+Gewinn je Aktie:
+  - treibende Kraft auf die Kursentwicklung einer Aktie
+  - Gewinn je Aktie = Gesamtgewinn / Aktienanzahl
+  - ist die wichtigste Kerngröße überhaupt
+  - nur diese lässt Rückschlüsse auf die Entwicklung des Unternehmens zu
+  - die Anzahl der Aktie kann sich ändern
+  - ist die wichtige Kennzahl zut Bestimmung des Kurs-Gewinn-Verhältnisses
