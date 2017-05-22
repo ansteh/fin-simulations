@@ -3,14 +3,14 @@ var gulp = require('gulp');
 var gutil = require('gulp-util');
 var webpack = require('webpack');
 
-gulp.task("salary", function(callback) {
+gulp.task('salary', function(callback) {
     webpack({
-      entry: "./lib/salary/germany.js",
+      entry: './lib/salary/germany.js',
       output: {
-        libraryTarget: "var",
-        library: "Salary",
+        libraryTarget: 'var',
+        library: 'Salary',
         path: path.resolve(__dirname, 'dist'),
-        filename: "salary.min.js"
+        filename: 'salary.min.js'
       },
       module: {
         loaders: [{
@@ -26,25 +26,25 @@ gulp.task("salary", function(callback) {
         new webpack.optimize.UglifyJsPlugin()
       ]
     }, function(err, stats) {
-        if(err) throw new gutil.PluginError("webpack", err);
-        gutil.log("[webpack]", stats.toString({
+        if(err) throw new gutil.PluginError('webpack', err);
+        gutil.log('[webpack]', stats.toString({
 
         }));
         callback();
     });
 });
 
-gulp.task("interest", function(callback) {
+gulp.task('interest', function(callback) {
     webpack({
-      entry: "./lib/interest/index.js",
+      entry: './lib/interest/index.js',
       output: {
-        libraryTarget: "var",
-        library: "Interest",
+        libraryTarget: 'var',
+        library: 'Interest',
         path: path.resolve(__dirname, 'dist'),
-        filename: "interest.min.js"
+        filename: 'interest.min.js'
       },
       externals: {
-        lodash: "_"
+        lodash: '_'
       },
       module: {
         loaders: [{
@@ -60,10 +60,12 @@ gulp.task("interest", function(callback) {
         new webpack.optimize.UglifyJsPlugin()
       ]
     }, function(err, stats) {
-        if(err) throw new gutil.PluginError("webpack", err);
-        gutil.log("[webpack]", stats.toString({
+        if(err) throw new gutil.PluginError('webpack', err);
+        gutil.log('[webpack]', stats.toString({
 
         }));
         callback();
     });
 });
+
+gulp.task('default', ['salary', 'interest']);

@@ -28,9 +28,29 @@ app.get('/salary-table', function(req, res){
   res.json(approximation.equation);
 });
 
+let filepathToAccount = path.resolve(__dirname, 'lib/salary/resources/local.json');
+
+const ensureLocalAccount = () => {
+  return loadJsonFile(filepathToAccount)
+  .then((json) => {
+    console.log('local account exists');
+  })
+  .catch((err) => {
+    if(err.code === 'ENOENT') {
+      let initialBody = {
+        "assets": [],
+        "liabilities": []
+      };
+
+      return writeJsonFile(filepathToAccount, initialBody);
+    }
+  });
+};
+
+ensureLocalAccount();
+
 app.get('/salary/get/local', function(req, res){
-  let filepath = path.resolve(__dirname, 'lib/salary/resources/local.json');
-  loadJsonFile(filepath).then(json => {
+  loadJsonFile(filepathToAccount).then(json => {
     res.json(json);
   });
 });
