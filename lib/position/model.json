@@ -1,0 +1,13 @@
+{
+  "name": "",
+  "description": "",
+  "type": {
+    "code": "code",
+    "kind": "asset | liability",
+    "ref": "parent.position | null"
+  },
+  "timeline": [{
+    "value": 0,
+    "date": ""
+  }]
+}
