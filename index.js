@@ -11,6 +11,17 @@ const loadJsonFile   = require('load-json-file');
 const writeJsonFile  = require('write-json-file');
 const bodyParser     = require('body-parser');
 
+const db      = require('./server/modules/service').getDb();
+const storage = require('./server/modules/storage');
+
+db.loadDatabase({}, () => {
+  console.log('lokijs ready!');
+  
+  storage.insert(db, 'user', { name: 'Warren' })
+    .then(console.log)
+    .catch(console.log);
+});
+
 app.use(bodyParser.json());
 app.use('/client', express.static(path.join(__dirname, '/client')));
 app.use('/dist', express.static(path.join(__dirname, '/dist')));
