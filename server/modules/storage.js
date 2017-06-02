@@ -59,7 +59,6 @@ const insert = (db, name, item) => {
 const update = (db, name, item) => {
   return loadCollection(db, name)
     .then((collection) => {
-      // console.log('update', item);
       collection.update(item);
       db.saveDatabase();
 

@@ -6,8 +6,8 @@ const Cashflow = require('./controller');
 
 router.get('/api/cashflow', (req, res) => {
   Cashflow.getAll()
-    .then((cashflows) => {
-      res.json(cashflows);
+    .then((assets) => {
+      res.json(assets);
     })
     .catch((err) => {
       console.log(err);
@@ -16,9 +16,10 @@ router.get('/api/cashflow', (req, res) => {
 });
 
 router.post('/api/cashflow/insert', (req, res) => {
+  console.log(req.body);
   Cashflow.insert(req.body)
-    .then((cashflow) => {
-      res.json(cashflow);
+    .then((asset) => {
+      res.json(asset);
     })
     .catch((err) => {
       console.log(err);
@@ -28,8 +29,8 @@ router.post('/api/cashflow/insert', (req, res) => {
 
 router.post('/api/cashflow/update', (req, res) => {
   Cashflow.update(req.body)
-    .then((cashflow) => {
-      res.json(cashflow);
+    .then((asset) => {
+      res.json(asset);
     })
     .catch((err) => {
       console.log(err);

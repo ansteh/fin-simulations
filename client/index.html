@@ -4,7 +4,7 @@
     <title>Salary - Germany</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.9/angular-material.min.css">
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.4/angular-material.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.9.8/chartist.min.css">
@@ -13,8 +13,9 @@
 
   <body>
     <div style="width: 650px; margin: auto;">
-      <interest-compare seed="500" rate="0.12" runtime="10"></interest-compare>
-      <wealth></wealth>
+      <!-- <interest-compare seed="500" rate="0.12" runtime="10"></interest-compare> -->
+      <!-- <wealth></wealth> -->
+      <cashflow></cashflow>
     </div>
   </body>
 
@@ -28,11 +29,11 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.4.1/bluebird.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.16.2/lodash.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-animate.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-aria.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-messages.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.9/angular-material.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-aria.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-messages.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.4/angular-material.min.js"></script>
 
   <script src="salary.min.js"></script>
   <script src="/dist/interest.min.js"></script>
@@ -43,4 +44,6 @@
   <script src="/client/accounting/service.js"></script>
   <script src="/client/accounting/directive.js"></script>
   <script src="/client/interest-compare/directive.js"></script>
+  <script src="/client/cashflow/cashflow.service.js"></script>
+  <script src="/client/cashflow/cashflow.component.js"></script>
 </html>

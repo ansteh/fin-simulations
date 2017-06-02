@@ -11,17 +11,17 @@ const getAll = () => {
     });
 };
 
-const insert = (position) => {
+const insert = (asset) => {
   return service.getDb()
     .then((db) => {
-      return storage.insert(db, COLLECTION_NAME, position);
+      return storage.insert(db, COLLECTION_NAME, asset);
     });
 };
 
-const update = (position) => {
+const update = (asset) => {
   return service.getDb()
     .then((db) => {
-      return storage.update(db, COLLECTION_NAME, position);
+      return storage.update(db, COLLECTION_NAME, asset);
     });
 };
 
