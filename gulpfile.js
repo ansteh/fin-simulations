@@ -68,4 +68,39 @@ gulp.task('interest', function(callback) {
     });
 });
 
+gulp.task('cashflow', function(callback) {
+    webpack({
+      entry: './lib/cashflow/index.js',
+      output: {
+        libraryTarget: 'var',
+        library: 'Cashflow',
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'cashflow.min.js'
+      },
+      externals: {
+        lodash: '_',
+        moment: 'moment',
+      },
+      module: {
+        loaders: [{
+          exclude: /(node_modules|bower_components)/,
+          test: /\.js$/,
+          loader: 'babel',
+          query: {
+            presets: ['es2015']
+          }
+        }]
+      },
+      plugins: [
+        new webpack.optimize.UglifyJsPlugin()
+      ]
+    }, function(err, stats) {
+        if(err) throw new gutil.PluginError('webpack', err);
+        gutil.log('[webpack]', stats.toString({
+
+        }));
+        callback();
+    });
+});
+
 gulp.task('default', ['salary', 'interest']);

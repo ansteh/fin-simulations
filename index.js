@@ -5,17 +5,6 @@ const app            = express();
 const path           = require('path');
 const bodyParser     = require('body-parser');
 
-// const service = require('./server/modules/service');
-// const storage = require('./server/modules/storage');
-//
-// service.getDb()
-//   .then((db) => {
-//     console.log('lokijs ready!');
-//     return storage.insert(db, 'user', { name: 'Warren' });
-//   })
-//   .then(console.log)
-//   .catch(console.log);
-
 app.use(bodyParser.json());
 app.use('/client', express.static(path.join(__dirname, '/client')));
 app.use('/dist', express.static(path.join(__dirname, '/dist')));
