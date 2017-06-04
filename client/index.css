@@ -4,3 +4,26 @@
   font-size: 15px;
   font-weight: 100;
 }
+
+/* cashflow chart*/
+.ct-chart .ct-series.ct-series-a .ct-line,
+.ct-chart .ct-series.ct-series-b .ct-line {
+  stroke: none;
+}
+
+.ct-chart .ct-area {
+  fill-opacity: 0.7;
+}
+
+.ct-chart .ct-grid {
+  shape-rendering: crispEdges;
+  /*stroke: none;*/
+}
+
+.ct-chart .ct-series.ct-series-a .ct-area {
+  fill: #00695C;
+}
+
+.ct-chart .ct-series.ct-series-b .ct-area {
+  fill: #81D4FA;
+}
