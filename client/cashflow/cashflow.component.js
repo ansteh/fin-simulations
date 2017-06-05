@@ -2,6 +2,8 @@ function CashflowController($scope, $element, $attrs, Cashflow) {
   var ctrl = this;
 
   ctrl.$onInit = function() {
+    ctrl.assetTypes = Cashflow.getAssetTypes();
+    
     Cashflow.loadAssets()
       .then(function() {
         ctrl.assets = Cashflow.getAssets();
@@ -28,10 +30,10 @@ function CashflowController($scope, $element, $attrs, Cashflow) {
     var element = _.first($element.find('.ct-chart'));
 
     new Chartist.Line(element, {
-      labels: [1, 2, 3, 4, 5, 6, 7, 8],
+      labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
       series: [
         [5, 9, 7, 8, 5, 3, 5, 4],
-        [3, 8, 4, 6, 2, 1, 4, 2]
+        // [3, 8, 4, 6, 2, 1, 4, 2],
       ]
     }, {
       low: 0,

@@ -47,37 +47,4 @@
   <script src="/client/interest-compare/directive.js"></script>
   <script src="/client/cashflow/cashflow.service.js"></script>
   <script src="/client/cashflow/cashflow.component.js"></script>
-
-  <script>
-    console.log(Cashflow);
-
-    var fixed = Cashflow.Fixed({
-      name: 'position',
-      each: 'month',
-      value: 2
-    });
-
-    var resource = Cashflow.Resource({
-      name: 'position',
-      cashflow: [{
-        date: moment().startOf('month').subtract(5, 'day').toDate(),
-        value: 3
-      },{
-        date: moment().startOf('month').subtract(3, 'day').toDate(),
-        value: 2
-      },{
-        date: new Date(),
-        value: 10
-      }]
-    });
-
-    var yearCash = Cashflow.getCashflow({
-      resources: [fixed, resource],
-      date: new Date(),
-      delimiter: 'year'
-    });
-
-    // console.log('year cashflow:', yearCash);
-    console.log('year cashflow:', 39 === yearCash);
-  </script>
 </html>

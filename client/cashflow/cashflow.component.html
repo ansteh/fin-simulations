@@ -1,19 +1,43 @@
 <div class="ct-chart"></div>
 
-<pre>{{ $ctrl.assets | json }}</pre>
+<md-content layout-padding>
+  <form name="assetForm">
+    <div layout="row" flex>
+      <md-input-container flex="50">
+        <input type="text" name="name" ng-model="$ctrl.asset.name" placeholder="name" required>
+      </md-input-container>
 
-<md-list>
-  <md-list-item class="md-3-line" style="min-height: inherit;">
-    <div class="md-list-item-text" layout="row" style="margin: 3px;">
-      <md-input-container flex="45">
-        <input type="text" ng-model="$ctrl.asset.name" placeholder="name">
+      <md-input-container flex="50">
+        <label>Type</label>
+        <md-select name="type" ng-model="$ctrl.asset.type" required>
+          <md-option ng-repeat="(type, create) in $ctrl.assetTypes" value="{{ type }}">
+            {{ type }}
+          </md-option>
+        </md-select>
       </md-input-container>
-      <md-input-container flex="45">
-        <input type="number" ng-model="$ctrl.asset.value" placeholder="value">
+    </div>
+
+    <div layout="row" flex>
+      <md-input-container flex="50">
+        <input type="number" name="value" ng-model="$ctrl.asset.value" placeholder="value" required>
       </md-input-container>
-      <md-button ng-click="$ctrl.addAsset()">
-        <md-icon aria-label="add-assets" class="material-icons" style="font-size: 24px;">add</md-icon>
+
+      <md-input-container flex="50" ng-if="$ctrl.asset.type === 'fixed'">
+        <label>Delimiter</label>
+        <md-select name="type" ng-model="$ctrl.asset.each" required>
+          <md-option ng-repeat="delimiter in ['month']" value="{{ delimiter }}">
+            {{ delimiter }}
+          </md-option>
+        </md-select>
+      </md-input-container>
+    </div>
+
+    <div flex layout="row" layout-align="end center">
+      <md-button ng-click="$ctrl.addAsset()" ng-disabled="assetForm.$invalid">
+        Add asset <md-icon aria-label="add-assets" class="material-icons" style="font-size: 24px;">add</md-icon>
       </md-button>
     </div>
-  </md-list-item>
-</md-list>
+  </form>
+</md-content>
+
+<pre>{{ $ctrl.assets | json }}</pre>
