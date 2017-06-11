@@ -56,7 +56,7 @@ app.factory('Cashflow', function($http) {
     date = date || new Date();
     delimiter = delimiter || 'month';
 
-    console.log(resources, date, delimiter);
+    // console.log(resources, date, delimiter);
 
     return Cashflow.getCashflow({
       resources: resources,
@@ -65,43 +65,28 @@ app.factory('Cashflow', function($http) {
     });
   };
 
-  // console.log(Cashflow);
-  //
-  // var fixed = Cashflow.Fixed({
-  //   name: 'position',
-  //   each: 'month',
-  //   value: 2
-  // });
-  //
-  // var resource = Cashflow.Resource({
-  //   name: 'position',
-  //   cashflow: [{
-  //     date: moment().startOf('month').subtract(5, 'day').toDate(),
-  //     value: 3
-  //   },{
-  //     date: moment().startOf('month').subtract(3, 'day').toDate(),
-  //     value: 2
-  //   },{
-  //     date: new Date(),
-  //     value: 10
-  //   }]
-  // });
-  //
-  // var yearCash = Cashflow.getCashflow({
-  //   resources: [fixed, resource],
-  //   date: new Date(),
-  //   delimiter: 'year'
-  // });
-  //
-  // // console.log('year cashflow:', yearCash);
-  // console.log('year cashflow:', 39 === yearCash);
+  var getCashflowByRange = function(start, end, delimiter) {
+    resources = resources || createResources();
 
+    return Cashflow.getCashflowByRange({
+      start: start,
+      end: end,
+      delimiter: delimiter,
+      resources: resources
+    });
+  };
+
+  var getLabels = function() {
+    return Cashflow.getLabels();
+  };
 
   return {
     addAsset: addAsset,
     getAssets: getAssets,
     getAssetTypes: getAssetTypes,
     getCashflow: getCashflow,
+    getCashflowByRange: getCashflowByRange,
+    getLabels: getLabels,
     loadAssets: loadAssets
   };
 });

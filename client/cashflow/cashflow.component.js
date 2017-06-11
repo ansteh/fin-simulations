@@ -1,22 +1,34 @@
 function CashflowController($scope, $element, $attrs, Cashflow) {
   var ctrl = this;
 
+  var getChartSeries = function() {
+    var start = moment().startOf('year').toDate();
+    var end = moment().endOf('year').toDate();
+    return Cashflow.getCashflowByRange(start, end, 'month');
+  };
+
+  ctrl.asset = {};
+  ctrl.series = {};
+
   ctrl.$onInit = function() {
     ctrl.assetTypes = Cashflow.getAssetTypes();
 
     Cashflow.loadAssets()
       .then(function() {
         ctrl.assets = Cashflow.getAssets();
-        
-        console.log('ctrl.getCashflow', ctrl.getCashflow(new Date(), 'month'));
+
+        var seriesCashflow = _
+          .chain(getChartSeries())
+          .map('cashflow')
+          .value();
+
+        ctrl.series = [
+          seriesCashflow
+        ];
       }, function(err) {
         console.log(err);
       });
-
-    ctrl.createChart();
   };
-
-  ctrl.asset = {};
 
   ctrl.addAsset = function() {
     Cashflow.addAsset(ctrl.asset)
@@ -28,25 +40,12 @@ function CashflowController($scope, $element, $attrs, Cashflow) {
       });
   };
 
-  ctrl.createChart = function() {
-    var element = _.first($element.find('.ct-chart'));
-
-    new Chartist.Line(element, {
-      labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-      series: [
-        [5, 9, 7, 8, 5, 3, 5, 4],
-        // [3, 8, 4, 6, 2, 1, 4, 2],
-      ]
-    }, {
-      low: 0,
-      showArea: true,
-      showPoint: false,
-      fullWIdth: true,
-    });
-  }
-
   ctrl.getCashflow = function(date, delimiter) {
     return Cashflow.getCashflow(date, delimiter);
+  }
+
+  ctrl.getCashflowByRange = function(start, end, delimiter) {
+    return Cashflow.getCashflowByRange(start, end, delimiter);
   }
 }
 
