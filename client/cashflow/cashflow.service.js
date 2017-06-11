@@ -1,5 +1,6 @@
 app.factory('Cashflow', function($http) {
   var assets;
+  // var resources;
 
   var assetTypes = {
     fixed: function(asset) {
@@ -18,6 +19,8 @@ app.factory('Cashflow', function($http) {
     return $http({ method: 'GET', url: '/api/cashflow' })
       .then(function (response) {
         assets = response.data;
+        resources = createResources();
+
         return assets;
       });
   };
@@ -31,6 +34,8 @@ app.factory('Cashflow', function($http) {
       .then(function (response) {
         var asset = response.data;
         assets.push(asset);
+        resources = createResources();
+
         return asset;
       });
   };
@@ -47,9 +52,11 @@ app.factory('Cashflow', function($http) {
   };
 
   var getCashflow = function(date, delimiter) {
-    var resources = createResources();
+    resources = resources || createResources();
     date = date || new Date();
     delimiter = delimiter || 'month';
+
+    console.log(resources, date, delimiter);
 
     return Cashflow.getCashflow({
       resources: resources,
@@ -94,6 +101,7 @@ app.factory('Cashflow', function($http) {
     addAsset: addAsset,
     getAssets: getAssets,
     getAssetTypes: getAssetTypes,
+    getCashflow: getCashflow,
     loadAssets: loadAssets
   };
 });

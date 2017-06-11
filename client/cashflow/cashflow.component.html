@@ -17,12 +17,12 @@
       </md-input-container>
     </div>
 
-    <div layout="row" flex>
+    <div layout="row" flex ng-if="$ctrl.asset.type === 'fixed'">
       <md-input-container flex="50">
         <input type="number" name="value" ng-model="$ctrl.asset.value" placeholder="value" required>
       </md-input-container>
 
-      <md-input-container flex="50" ng-if="$ctrl.asset.type === 'fixed'">
+      <md-input-container flex="50">
         <label>Delimiter</label>
         <md-select name="type" ng-model="$ctrl.asset.each" required>
           <md-option ng-repeat="delimiter in ['month']" value="{{ delimiter }}">

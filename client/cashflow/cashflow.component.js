@@ -3,10 +3,12 @@ function CashflowController($scope, $element, $attrs, Cashflow) {
 
   ctrl.$onInit = function() {
     ctrl.assetTypes = Cashflow.getAssetTypes();
-    
+
     Cashflow.loadAssets()
       .then(function() {
         ctrl.assets = Cashflow.getAssets();
+        
+        console.log('ctrl.getCashflow', ctrl.getCashflow(new Date(), 'month'));
       }, function(err) {
         console.log(err);
       });
@@ -41,6 +43,10 @@ function CashflowController($scope, $element, $attrs, Cashflow) {
       showPoint: false,
       fullWIdth: true,
     });
+  }
+
+  ctrl.getCashflow = function(date, delimiter) {
+    return Cashflow.getCashflow(date, delimiter);
   }
 }
 

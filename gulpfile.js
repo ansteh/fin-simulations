@@ -103,4 +103,4 @@ gulp.task('cashflow', function(callback) {
     });
 });
 
-gulp.task('default', ['salary', 'interest']);
+gulp.task('default', ['salary', 'interest', 'cashflow']);
