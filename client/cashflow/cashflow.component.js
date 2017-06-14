@@ -9,6 +9,7 @@ function CashflowController($scope, $element, $attrs, Cashflow) {
 
   ctrl.asset = {};
   ctrl.series = {};
+  ctrl.selectedAsset;
 
   ctrl.$onInit = function() {
     ctrl.assetTypes = Cashflow.getAssetTypes();
