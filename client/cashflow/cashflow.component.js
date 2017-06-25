@@ -16,19 +16,30 @@ function CashflowController($scope, $element, $attrs, Cashflow) {
 
     Cashflow.loadAssets()
       .then(function() {
-        ctrl.assets = Cashflow.getAssets();
-
-        var seriesCashflow = _
-          .chain(getChartSeries())
-          .map('cashflow')
-          .value();
-
-        ctrl.series = [
-          seriesCashflow
-        ];
+        ctrl.refresh();
       }, function(err) {
         console.log(err);
       });
+
+    $scope.$watch(function() {
+      var assets = Cashflow.getAssets();
+      if(assets) return JSON.stringify(assets);
+    }, function(assets) {
+      if(assets) ctrl.refresh();
+    });
+  };
+
+  ctrl.refresh = function() {
+    ctrl.assets = Cashflow.getAssets();
+
+    var seriesCashflow = _
+      .chain(getChartSeries())
+      .map('cashflow')
+      .value();
+
+    ctrl.series = [
+      seriesCashflow
+    ];
   };
 
   ctrl.addAsset = function() {

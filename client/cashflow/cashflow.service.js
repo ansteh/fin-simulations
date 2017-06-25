@@ -40,6 +40,20 @@ app.factory('Cashflow', function($http) {
       });
   };
 
+  var updateAsset = function(asset) {
+    return $http({
+        method: 'POST',
+        url: '/api/cashflow/update',
+        data: asset
+      })
+      .then(function (response) {
+        var asset = response.data;
+        resources = createResources();
+
+        return asset;
+      });
+  };
+
   var getAssets = function() {
     return assets;
   };
@@ -87,6 +101,7 @@ app.factory('Cashflow', function($http) {
     getCashflow: getCashflow,
     getCashflowByRange: getCashflowByRange,
     getLabels: getLabels,
-    loadAssets: loadAssets
+    loadAssets: loadAssets,
+    updateAsset: updateAsset
   };
 });
