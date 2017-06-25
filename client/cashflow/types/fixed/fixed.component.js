@@ -10,6 +10,6 @@ angular.module('app').component('cashflowFixedType', {
   templateUrl: '/client/cashflow/types/fixed/fixed.component.html',
   controller: CashflowFixedTypeController,
   bindings: {
-
+    asset: "="
   }
 });

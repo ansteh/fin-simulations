@@ -1,43 +1,63 @@
-<cashflow-chart series="$ctrl.series"></cashflow-chart>
+<div layout="row">
+  <div flex="30">
+    <ng-include src="'client/cashflow/asset-list.html'"></ng-include>
+  </div>
 
-<md-content layout-padding>
-  <form name="assetForm">
-    <div layout="row" flex>
-      <md-input-container flex="50">
-        <input type="text" name="name" ng-model="$ctrl.asset.name" placeholder="name" required>
-      </md-input-container>
+  <div flex style="margin-top: 30px;">
+    <cashflow-chart series="$ctrl.series"></cashflow-chart>
 
-      <md-input-container flex="50">
-        <label>Type</label>
-        <md-select name="type" ng-model="$ctrl.asset.type" required>
-          <md-option ng-repeat="(type, create) in $ctrl.assetTypes" value="{{ type }}">
-            {{ type }}
-          </md-option>
-        </md-select>
-      </md-input-container>
-    </div>
+    <md-content layout-padding>
+      <form name="assetForm">
+        <div layout="row" flex>
+          <md-input-container flex="50">
+            <input type="text" name="name" ng-model="$ctrl.asset.name" placeholder="name" required>
+          </md-input-container>
 
-    <div layout="row" flex ng-if="$ctrl.asset.type === 'fixed'">
-      <md-input-container flex="50">
-        <input type="number" name="value" ng-model="$ctrl.asset.value" placeholder="value" required>
-      </md-input-container>
+          <md-input-container flex="50">
+            <label>Type</label>
+            <md-select name="type" ng-model="$ctrl.asset.type" required>
+              <md-option ng-repeat="(type, create) in $ctrl.assetTypes" value="{{ type }}">
+                {{ type }}
+              </md-option>
+            </md-select>
+          </md-input-container>
+        </div>
 
-      <md-input-container flex="50">
-        <label>Delimiter</label>
-        <md-select name="type" ng-model="$ctrl.asset.each" required>
-          <md-option ng-repeat="delimiter in ['month']" value="{{ delimiter }}">
-            {{ delimiter }}
-          </md-option>
-        </md-select>
-      </md-input-container>
-    </div>
+        <div layout="row" flex ng-if="$ctrl.asset.type === 'fixed'">
+          <md-input-container flex="50">
+            <input type="number" name="value" ng-model="$ctrl.asset.value" placeholder="value" required>
+          </md-input-container>
 
-    <div flex layout="row" layout-align="end center">
-      <md-button ng-click="$ctrl.addAsset()" ng-disabled="assetForm.$invalid">
-        Add asset <md-icon aria-label="add-assets" class="material-icons" style="font-size: 24px;">add</md-icon>
-      </md-button>
-    </div>
-  </form>
-</md-content>
+          <md-input-container flex="50">
+            <label>Delimiter</label>
+            <md-select name="type" ng-model="$ctrl.asset.each" required>
+              <md-option ng-repeat="delimiter in ['month']" value="{{ delimiter }}">
+                {{ delimiter }}
+              </md-option>
+            </md-select>
+          </md-input-container>
+        </div>
 
-<ng-include src="'client/cashflow/asset-list.html'"></ng-include>
+        <div flex layout="row" layout-align="end center">
+          <md-button ng-click="$ctrl.addAsset()" ng-disabled="assetForm.$invalid">
+            Add asset <md-icon aria-label="add-assets" class="material-icons" style="font-size: 24px;">add</md-icon>
+          </md-button>
+        </div>
+      </form>
+    </md-content>
+  </div>
+</div>
+
+<div>
+  <!-- <pre>{{ $ctrl.selectedAsset | json }}</pre> -->
+
+  <cashflow-fixed-type
+    ng-if="$ctrl.selectedAsset.type === 'fixed'"
+    asset="$ctrl.selectedAsset">
+  </cashflow-fixed-type>
+
+  <cashflow-resource-type
+    ng-if="$ctrl.selectedAsset.type === 'resource'"
+    asset="$ctrl.selectedAsset">
+  </cashflow-resource-type>
+</div>

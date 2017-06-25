@@ -1,0 +1,47 @@
+<md-list>
+  <md-list-item class="md-2-line" ng-repeat="position in $ctrl.asset.cashflow">
+    <!-- <pre>{{ position | json }}</pre> -->
+    <div flex layout="row" layout-align="center center" layout-wrap>
+      <div>{{ position.date | date:'dd-MM-yyyy' }} : {{ position.value }} €</div>
+
+      <section flex layout="row" layout-align="end center" layout-wrap>
+        <md-button class="md-icon-button" ng-click="$ctrl.open(position)" aria-label="remove">
+          <md-icon class="material-icons">edit</md-icon>
+        </md-button>
+
+        <md-button class="md-icon-button" ng-click="$ctrl.remove(position)" aria-label="remove">
+          <md-icon class="material-icons">delete</md-icon>
+        </md-button>
+      </section>
+    </div>
+  </md-list-item>
+
+  <md-list-item class="md-2-line" ng-show="$ctrl.position">
+    <div class="md-list-item-text">
+      <div layout="row" flex>
+        <md-input-container flex>
+          <input type="number" name="value" ng-model="$ctrl.position.value" placeholder="value" required>
+        </md-input-container>
+
+        <md-input-container flex>
+          <label>Date</label>
+          <md-datepicker ng-model="$ctrl.position.date" md-placeholder="Enter date" required></md-datepicker>
+        </md-input-container>
+
+        <div flex style="margin-top: 10px;">
+          <md-button class="md-primary md-raised" ng-click="$ctrl.insert()" aria-label="add">
+            insert <md-icon class="material-icons">add</md-icon>
+          </md-button>
+        </div>
+      </div>
+    </div>
+  </md-list-item>
+
+  <md-list-item class="md-2-line" ng-show="!$ctrl.position">
+    <md-button class="md-secondary" ng-click="$ctrl.open()" aria-label="add">
+      add position <md-icon class="material-icons">add</md-icon>
+    </md-button>
+  </md-list-item>
+</md-list>
+
+<pre>{{ $ctrl.asset | json }}</pre>
