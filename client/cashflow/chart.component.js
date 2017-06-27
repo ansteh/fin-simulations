@@ -6,7 +6,7 @@ function CashflowChartController($scope, $element, $attrs, Cashflow) {
     $scope.$watch(function() {
       return ctrl.series;
     }, function() {
-      console.log(ctrl.series);
+      // console.log(ctrl.series);
       ctrl.createChart();
     });
   };

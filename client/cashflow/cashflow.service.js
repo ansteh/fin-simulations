@@ -1,6 +1,6 @@
 app.factory('Cashflow', function($http) {
   var assets;
-  // var resources;
+  var resources;
 
   var assetTypes = {
     fixed: function(asset) {
@@ -18,11 +18,31 @@ app.factory('Cashflow', function($http) {
   var loadAssets =  function() {
     return $http({ method: 'GET', url: '/api/cashflow' })
       .then(function (response) {
-        assets = response.data;
+        assets = parseAssets(response.data);
         resources = createResources();
 
         return assets;
       });
+  };
+
+  var parseAssets = function(data) {
+    return _.map(data, parseAsset);
+  };
+
+  var parseAsset = function(asset) {
+    if(asset.type === 'resource') {
+      asset.cashflow = _
+        .chain(_.get(asset, 'cashflow', []))
+        .map(function(transaction) {
+          if(_.isString(transaction.date)) {
+            transaction.date = new Date(transaction.date);
+          }
+          return transaction;
+        })
+        .sortBy('date')
+        .value();
+    }
+    return asset;
   };
 
   var addAsset = function(asset) {
@@ -32,8 +52,9 @@ app.factory('Cashflow', function($http) {
         data: asset
       })
       .then(function (response) {
-        var asset = response.data;
+        var asset = parseAsset(response.data);
         assets.push(asset);
+        assets = parseAssets(assets);
         resources = createResources();
 
         return asset;
@@ -47,7 +68,8 @@ app.factory('Cashflow', function($http) {
         data: asset
       })
       .then(function (response) {
-        var asset = response.data;
+        var asset = parseAsset(response.data);
+        assets = parseAssets(assets);
         resources = createResources();
 
         return asset;
@@ -69,8 +91,6 @@ app.factory('Cashflow', function($http) {
     resources = resources || createResources();
     date = date || new Date();
     delimiter = delimiter || 'month';
-
-    // console.log(resources, date, delimiter);
 
     return Cashflow.getCashflow({
       resources: resources,
